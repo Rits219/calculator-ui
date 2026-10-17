@@ -1,0 +1,288 @@
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --navy: #203653;
+    --blue: #3478f6;
+    --green: #279b65;
+    --text: #203653;
+    --muted: #64748b;
+    --border: #d9e4f2;
+    --background: #f4f7fb;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--background);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 26px max(24px, calc((100% - 1100px) / 2));
+    color: white;
+    background: linear-gradient(120deg, #203653, #314969);
+}
+
+.logo {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    border: 2px solid white;
+    border-radius: 12px;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.header p {
+    margin: 7px 0 0;
+    color: #dbe7f6;
+}
+
+.container {
+    width: min(1100px, calc(100% - 32px));
+    margin: 32px auto;
+}
+
+.calculator-card {
+    padding: 28px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(25, 48, 82, 0.05);
+}
+
+.calculator-card h2 {
+    margin: 0 0 24px;
+}
+
+.input-grid,
+.button-grid,
+.results {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.form-group label,
+.api-config label {
+    display: block;
+    margin-bottom: 9px;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 14px;
+    border: 1px solid #cbd8e8;
+    border-radius: 8px;
+    font-size: 17px;
+    color: var(--text);
+    background: white;
+}
+
+input:focus {
+    outline: 2px solid #b6d2ff;
+    border-color: var(--blue);
+}
+
+.button-grid {
+    margin-top: 24px;
+}
+
+.btn {
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.btn-add {
+    background: var(--blue);
+}
+
+.btn-subtract {
+    background: var(--green);
+}
+
+.status {
+    min-height: 20px;
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.status.error {
+    color: #b42318;
+}
+
+.api-config {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid #e7edf5;
+}
+
+.api-config label {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.api-config input {
+    font-size: 14px;
+}
+
+.results {
+    margin-top: 22px;
+}
+
+.result-card {
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid #c9e0ff;
+    border-radius: 12px;
+    background: #edf5ff;
+}
+
+.result-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    font-size: 19px;
+}
+
+.icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: white;
+    font-size: 26px;
+}
+
+.subtraction {
+    background: #eefaf4;
+    border-color: #c8efdc;
+}
+
+.subtraction .icon {
+    background: var(--green);
+}
+
+.equation {
+    margin: 18px 0 12px;
+    font-size: 20px;
+    overflow-wrap: anywhere;
+}
+
+.equation strong {
+    margin-left: 5px;
+    color: var(--blue);
+    font-size: 30px;
+}
+
+.subtraction .equation strong {
+    color: var(--green);
+}
+
+.endpoint {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 650px) {
+    .header {
+        padding: 22px 18px;
+    }
+
+    .header h1 {
+        font-size: 26px;
+    }
+
+    .container {
+        margin: 20px auto;
+    }
+
+    .calculator-card {
+        padding: 20px;
+    }
+
+    .input-grid,
+    .button-grid,
+    .results {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+}
+
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.btn-multiply {
+    background: #805ad5;
+}
+
+.btn-divide {
+    background: #d97706;
+}
+
+.multiplication {
+    background: #f5f0ff;
+    border-color: #ddd0ff;
+}
+
+.multiplication .equation strong {
+    color: #805ad5;
+}
+
+.division {
+    background: #fff7ed;
+    border-color: #fed7aa;
+}
+
+.division .equation strong {
+    color: #d97706;
+}
+
+@media (max-width: 650px) {
+    .button-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

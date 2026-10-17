@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropwizard Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">±</div>
+        <div>
+            <h1>Calculator</h1>
+            <p>Powered by your Java Dropwizard APIs</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="calculator-card">
+            <h2>Enter Numbers</h2>
+
+            <div class="input-grid">
+                <div class="form-group">
+                    <label for="numberA">Number A</label>
+                    <input id="numberA" type="number" step="any" value="5">
+                </div>
+
+                <div class="form-group">
+                    <label for="numberB">Number B</label>
+                    <input id="numberB" type="number" step="any" value="10">
+                </div>
+            </div>
+
+            <div class="button-grid">
+                <button id="addButton" class="btn btn-add">
+                    + Add
+                </button>
+
+                <button id="subtractButton" class="btn btn-subtract">
+                    − Subtract
+                </button>
+                <button id="multiplyButton" class="btn btn-multiply">
+                    × Multiply
+                </button>
+
+                <button id="divideButton" class="btn btn-divide">
+                    ÷ Divide
+                </button>
+            </div>
+
+            <p id="status" class="status" role="status" aria-live="polite">
+                Ready. Select an operation.
+            </p>
+
+            <div class="api-config">
+                <label for="baseUrl">Dropwizard Base URL</label>
+                <input
+                    id="baseUrl"
+                    type="url"
+                    value="http://localhost:8080"
+                >
+            </div>
+        </section>
+
+        <section class="results">
+            <article class="result-card addition">
+                <h2>Addition (+)</h2>
+                <p id="addEquation" class="equation">
+                    5 + 10 = <strong id="addResult">—</strong>
+                </p>
+                <p class="endpoint">POST /calculator/add</p>
+            </article>
+
+            <article class="result-card subtraction">
+                <h2>Subtraction (−)</h2>
+                <p id="subtractEquation" class="equation">
+                    5 − 10 = <strong id="subtractResult">—</strong>
+                </p>
+                <p class="endpoint">POST /calculator/subtract</p>
+            </article>
+
+            <article class="result-card multiplication">
+                <h2>Multiplication (×)</h2>
+                <p id="multiplyEquation" class="equation">
+                    5 × 10 = <strong id="multiplyResult">—</strong>
+                </p>
+                <p class="endpoint">POST /calculator/multiply</p>
+            </article>
+
+            <article class="result-card division">
+                <h2>Division (÷)</h2>
+                <p id="divideEquation" class="equation">
+                    5 ÷ 10 = <strong id="divideResult">—</strong>
+                </p>
+                <p class="endpoint">POST /calculator/divide</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
